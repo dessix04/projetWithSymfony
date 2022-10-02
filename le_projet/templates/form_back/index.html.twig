@@ -1,0 +1,9 @@
+{% block content %}
+<h1>Réponse au remplissage du formulaire</h1>
+<div>
+<p>Vous êtes <em>{{ prenom }} {{ nom }}</em></p>
+<p>né le <em>{{ date|date('d-m-Y') }}</em></p>
+<p>Votre numéro de sécurité sociale est <em>{{ num }}</em></p>
+</div>
+<p>pour saisir une nouveau nom <a href="{{ path('test_form_back') }}">cliquez ici</a></p>
+{% endblock %}

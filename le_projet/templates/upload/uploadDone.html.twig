@@ -1,0 +1,30 @@
+{% extends 'test_layout_marc/baseTest.html.twig' %}
+{% block content %}
+{% if lastFile %}
+<h2>Upload de {{ lastFile }} terminé</h2>
+{% endif %}
+<h2>Liste des fichiers présents</h2>
+ 
+ 
+<table class="alt3">
+{% for res in results %}
+  {% if loop.first %}
+  <tr>{% for clef, val in res %}<th>{{ clef }}</th>{% endfor %}</tr>
+  {% endif %}
+  <tr{% if res.path == lastFile %} style="background-color:#cfc"{% endif %}>
+    {% for clef, val in res %}<td>
+      {% if clef == 'path' %}
+        {# la ligne suivante assure la possibilité de charger le fichier à partir d'un lien #}
+        {# en prenant soin de protéger les caractères spéciaux dans les contextes appropriés par le filtre "|escape('contexte')" #}
+        <a href="{{ asset('uploads/') ~ val|escape('url') }}">{{ val|escape('html') }}</a>
+      {% else %}
+        {# ici le filtre "|e" est équivalent à "escape('html')" #}
+        {{ val|e }}
+      {% endif %}
+    </td>{% endfor %}
+  </tr>
+{% endfor %}
+</table>
+ 
+{% endblock %}
+

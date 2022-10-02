@@ -1,0 +1,13 @@
+{% extends 'test_layout_marc/baseTest.html.twig' %}
+{% block content %}
+<h1>Résultat de la lecture de la table <em> {{ table }}</em></h1>
+{# {{ dump(testvar) }}  #}
+<table class="alt3">
+{% for res in results %}
+  {% if loop.first %}
+  <tr>{% for clef, val in res %}<th>{{ clef }}</th>{% endfor %}</tr>
+  {% endif %}
+  <tr>{% for clef, val in res %}<td>{{ val }}</td>{% endfor %}</tr>
+{% endfor %}
+</table>
+{% endblock %}

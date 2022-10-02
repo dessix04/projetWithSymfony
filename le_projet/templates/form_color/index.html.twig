@@ -1,0 +1,8 @@
+{% block content %}
+<h1>Résultat de la saisie</h1>
+<h2 style="background-color:{{ style.color }};font-family:{{ style.font }}">{{ style.string }}</h2>
+
+<p>pour modifier à nouveau cette page <a href="{{ path('test_form_color',
+					        { 'color': style.color, 'font': style.font, 'string': style.string }) }}">cliquez ici</a></p>
+
+{% endblock %}

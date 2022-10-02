@@ -1,0 +1,12 @@
+
+test_show_route:
+    path: /test_show_route{url}
+    defaults:
+        _controller: App\Controller\TestController::showRoute
+        _format: html
+        url: /test_route/T/Marie/42
+    requirements:
+        url: '[0-9a-zA-Z/_]+' # vérification que la variable url ne contienne que des caractères alphanumériques et des /nou des (_)
+    host: 127.0.0.1
+    schemes: http
+    methods: GET

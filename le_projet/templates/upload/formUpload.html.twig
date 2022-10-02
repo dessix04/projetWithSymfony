@@ -1,0 +1,7 @@
+{% extends 'test_layout_marc/baseTest.html.twig' %}
+{% block content %}
+<h1>Upload d'un fichier</h1>
+ 
+{% if form %}{{ form( form ) }}{% else %}Pas de formulaire transmis{% endif %}
+ 
+{% endblock %}

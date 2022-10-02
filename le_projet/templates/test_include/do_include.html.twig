@@ -1,0 +1,13 @@
+{% extends 'test_layout_marc/baseTest.html.twig' %}
+{% block body %}
+<ul>
+{% include 'test_include/include.html.twig' %}
+{% for id in noms %}
+        <li><a href="{{ path('testroute', 
+                            {'nom' : id[0], 'prenom' : id[1]}) }}">
+                            {{id[0]}}   {{id[1]}}
+            </a>
+        </li>
+{% endfor %}
+</ul>
+{% endblock%}

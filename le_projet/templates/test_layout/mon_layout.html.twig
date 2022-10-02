@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type"
+             content="text/html; charset=utf-8"/>
+    <title>{% block title %}Test{% endblock %}</title>
+  </head>
+  <body>
+    <nav>
+      {% block sidebar %}
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/infos">infos</a></li>
+      </ul>
+      {% endblock %}
+    </nav>
+    <div id="content">
+      {% block body %}contenu{% endblock %}
+    </div>
+  </body>
+</html>

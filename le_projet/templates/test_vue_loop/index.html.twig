@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+{% for i in 0..10 %}
+  {# alternance de classe CSS avec "even" et "odd" #}
+  <div class="{{ cycle(['odd', 'even'], i) }}">
+    {# conversion en minuscules #}
+    {{cycle(les_identites.nom, i) | lower}}
+    {# conversion en majuscules #}
+    {{cycle(les_identites.prenom, i) | upper}}
+  </div>
+{% endfor %}
+</body>
+</html>

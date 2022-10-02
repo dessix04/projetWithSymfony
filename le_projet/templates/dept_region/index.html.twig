@@ -1,0 +1,12 @@
+{% block content %}
+<h1>Résultat du remplissage des tables</h1>
+{%  if (num_depts==0) %}  {{ errors }} {% endif %}
+{% if (num_depts!=0) %}
+<h3>Il y a {{ num_depts }} départements qui ont été insérés.</h3>
+<ul>
+{% for res in results %}
+  <li class="alt">{{ res }}</li>
+{% endfor %}
+</ul>
+ {% endif %}
+{% endblock %}

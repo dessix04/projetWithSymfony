@@ -1,0 +1,74 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+test_mon_merci:
+    path:     /merci/
+    defaults: { _controller: App\Controller\MonController::index }
+
+#création d'une route qui affiche les arguments données à la méthode index() du controleur TestControleur.
+test:
+  path:     /djibril/{nom}-{prenom}-{age}
+  defaults: { _controller: App\Controller\TestController::index }
+
+#l'insertion des regex (expréssion regulière) dans les variables. 
+testroute:
+    path:    /test_route/nom-{nom}-prenom-{prenom}-age-{age}
+    defaults:
+      nom: moi
+      prenom: toi
+      age: 2
+      _controller: App\Controller\TestController::index 
+    requirements: 
+       nom: '[[:alpha:]]+'
+       prenom: '[-[:alpha:]]{2,10}'
+       age: '\d{1,3}'
+
+# route test1
+test1:
+  path:  /test1/{nom}-{prenom}
+  defaults: { _controller: App\Controller\Test1Controller::Bonjour }
+
+# route test_vue_twig
+test_mon_view_twig_simple:
+  path:  /test_vue_twig/{nom}/{prenom}/{age}
+  defaults:
+    _controller: \App\Controller\TestVueTwigController::index
+    prenom: Un
+    nom: Anonyme
+    age: 36
+  requirements:
+    nom:    "[[:alnum:]]+"
+    prenom: "[-[:alnum:]]{2,10}"
+    age:   \d+
+
+# route test_vue_loop
+test_vue_loop:
+  path:  /test_vue_loop/
+  defaults: { _controller: App\Controller\TestVueLoopController::index }
+
+# route test_vue_loop fait par marc
+test_mon_view_loop:
+    path:  /test_vue_marc_loop/
+    defaults:
+      _controller: \App\Controller\TestVueMarcLoopController::index
+
+# route pour le mon_layout
+test_vue_layout:
+  path:  /test_layout/{nom}-{prenom}-{age}
+  defaults: 
+    _controller: App\Controller\TestLayoutController::index
+    prenom: Djibril
+    nom: BAH
+    age: 21
+
+# route pour le mon_layout avec un tableau
+test_layout_tab:
+    path:  /test_tab_layout/
+    defaults:
+      _controller: \App\Controller\TestLayoutController::bonjour
+
+# route le mon_layout fait par marc
+test_marc_layout:
+    path:  /test_marc_layout
+    defaults:
+      _controller: \App\Controller\TestLayoutMarcController::index

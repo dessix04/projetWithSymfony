@@ -1,0 +1,19 @@
+{% extends 'test_layout_marc/baseTest.html.twig' %}
+{% block title %}{{ parent() }} - Liste de personnes{% endblock %}
+{% block content %}
+<h1>Test d'inclusion d'un <q>template</q> par <em>Twig</em></h1>
+<h2>Les prénoms en alternance (majuscules/minuscules)</h2>
+{% include 'marc_include/include.html.twig' with {nombre: liste_id|length} %}
+<dl>
+  {% for clef, id in liste_id %}
+    {# affichage du prénom converti en majuscules #}
+    <dt>numéro {{ clef+1 }}</dt>
+    <dd>
+      <a href="{{ path('testroute', { 'nom': id.nom, 'prenom':id.prenom, 'age': id.age }) }}">
+      {% if clef%2 %}{{ id.prenom }}
+      {% else %} {{ id.prenom | upper }}{% endif %}</a>
+    </dd>
+  {% endfor %}
+</dl>
+<pre>{{ dump(liste_id) }}</pre>
+{% endblock %}

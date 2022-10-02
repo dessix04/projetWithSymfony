@@ -1,0 +1,7 @@
+{% extends 'text_security/main.html.twig' %}
+{% block secucontent %}
+<h3>Bienvenue, vous ếtes authentifié en tant que <em>{{ username }}</em></h1>
+ 
+<p>{% if message %}{{ message }}{% else %}Pas de message transmis{% endif %}</p>
+ 
+{% endblock %}

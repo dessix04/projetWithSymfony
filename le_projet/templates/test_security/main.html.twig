@@ -1,0 +1,11 @@
+{% extends 'test_layout_marc/baseTest.html.twig' %}
+{% block content %}
+<h2>Accès à la zone sécurisée</h2>
+ 
+{% block secucontent %}{% endblock %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+<p>pour se déconnecter <a href="{{ path('app_logout') }}">cliquez ici</a></p>
+{% else %}
+<p>pour se connecter <a href="{{ path('app_login') }}">cliquez ici</a></p>
+{% endif %}
+{% endblock %}

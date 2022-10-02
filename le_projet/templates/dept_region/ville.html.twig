@@ -1,0 +1,9 @@
+{% block content %}
+<h1>Information sur la région <em>{{ region }}</em></h1>
+
+<ul>
+{% for res in departements %}
+  <li class="alt">{{ res }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

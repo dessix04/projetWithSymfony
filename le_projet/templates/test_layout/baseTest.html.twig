@@ -1,0 +1,9 @@
+{% extends 'test_layout/mon_layout.html.twig' %}
+{% block title %}Bonjour {{prenom}}{% endblock %}
+{% block body %}
+    <p>Bonjour à toi {{prenom}} {{nom}}<p>
+    <h1>Page d'inscription<h1>
+    {% include '/test_layout/moi.html.twig'
+		   with {         'nom': nom,
+                         'age': 35} %}
+{% endblock %}

@@ -1,0 +1,17 @@
+<h1>Test de traitement dans un <q>template</q> par <em>Twig</em></h1>
+<p>Voici l'affichage des tableaux de prénoms transmis</p>
+<h2>Les prénoms de fille</h2>
+<ul>
+  {% for prenom in prenoms.feminin %}
+    {# affichage du prénom converti en majuscules #}
+    <li>{{ prenom | upper}}</li>
+  {% endfor %}
+</ul>
+<h2>Les prénoms de garçons (seul le premier est converti en majuscules)</h2>
+{% for prenom in prenoms.masculin %}
+  {# affichage du nombre d'itérations #}
+  {% if loop.first %}<h2>Il y a {{ loop.length }} prénoms</h2><ul>{% endif %}
+  {# affichage du prénom converti en majuscules pour la première itération #}
+    <li>{% if loop.first %}{{ prenom | upper}}{% else %}{{ prenom }}{% endif %}</li>
+  {% if loop.last %}</ul>{% endif %}
+{% endfor %}

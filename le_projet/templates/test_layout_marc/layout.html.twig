@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>{% block title %}Bienvenue chez nous !{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('css/all.css') }}"/>
+    <link type="image/x-icon" rel="shortcut icon" href="{{ asset('images/icon.png') }}"/>
+  </head>
+  <body>
+    <header>{% block header %}{% endblock %}</header>
+    {% block body %}{% endblock %}
+    {% block error %}{% if errors is defined %}<p class="error">{{ errors }}</p>{% endif %}{% endblock %}
+    {% block exception %}{% if exception is defined %}<p class="exception">{{ exception }}{% endif %}{% endblock %}
+    <footer>
+      {% block footer %}{% endblock %}
+      <p class="validators">Page validée par
+	      <a href="http://validator.w3.org/check?uri=referer"><img src="{{ asset('images/valid_xhtml.svg') }}" alt="Valid XHTML 1.1" title="xHTML 1.1 validé !"/></a>
+	      <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="{{ asset('images/valid_css.svg') }}" alt="CSS validé !" title="CSS validé !"/></a>
+      </p>
+    </footer>
+  </body>
+</html>

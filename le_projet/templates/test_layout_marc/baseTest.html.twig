@@ -1,0 +1,21 @@
+{% extends 'test_layout_marc/layout.html.twig' %}
+{% block title %}Bienvenue dans ce test !{% endblock %}
+{% block header %}
+<h1>Ceci est le contrôleur de test</h1>
+{% endblock %}
+{% block body %}
+  {% block content %}
+    {% if vartest is defined %}
+      {{ vartest }}
+    {% elseif prenoms is defined %}
+      <h2>La liste des prénoms en vrac</h2>
+      <ul>
+      {% for prenom in prenoms %}
+         <li>{{ prenom | upper}}</li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <h2>Circulez, il n'y a rien à voir !</h2>
+    {% endif %}
+  {% endblock %}
+{% endblock %}
